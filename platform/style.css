@@ -1,0 +1,26 @@
+#portfolioCointainer {
+	width: 100%;
+	padding-top: 10px;
+}
+
+#portfolio, #administration {
+	width: 70%;
+	margin: auto;
+	text-align: left;
+}
+
+div.ui.inverted.menu {
+	border-radius: 0px;
+}
+
+#administration {
+	margin-top: 10px;
+}
+
+.editor {
+	padding: 20px;
+}
+
+i:hover {
+	cursor: pointer;
+}

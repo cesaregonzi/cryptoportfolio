@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Crypto Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body class="loginBody">
+
+	<script>
+
+	$(document).ready(function(){
+		$("#loggati").click(function() {
+
+			var user = $("#user").val();
+			var pass = $("#pass").val();
+			
+			$.post("login.php", {
+				username: user,
+				password: pass
+			},function(data,status){
+				
+				if (status == "success" && data == user+pass) {
+					window.location.href = './platform/myportfolio.php';
+				}
+				else {
+					document.getElementById("warning").style.display = 'block';
+					if (data == "Username not existing") {
+						document.getElementById("warning").innerHTML = '<p>Username not existing</p>'
+					}
+					else if (data == "Password is wrong") {
+						document.getElementById("warning").innerHTML = '<p>Wrong Password</p>'
+					}
+					else if (data == "Missing") {
+						document.getElementById("warning").innerHTML = '<p>No data</p>'
+					}
+				}
+
+			});
+		});
+	});
+
+	</script>
+
+    <div class="page-login">
+        <div class="ui centered grid container">
+            <div class="nine wide column">
+                <div class="ui icon warning message" id="warning">
+                    <i class="lock icon"></i>
+                    <div class="content">
+                        <div class="header">
+                            Login failed!
+                        </div>
+                        <p>You might have misspelled your username or password!</p>
+                    </div>
+                </div>
+                <div class="ui fluid card">
+                    <div class="content">
+                        <form class="ui form" method="POST" action="#">
+                            <div class="field">
+                                <label>User</label>
+                                <input type="text" id="user" placeholder="User">
+                            </div>
+                            <div class="field">
+                                <label>Password</label>
+                                <input type="password" id="pass" placeholder="Password">
+                            </div>
+                            <button class="ui primary labeled icon button" type="button" id="loggati">
+                                <i class="unlock alternate icon"></i> Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
