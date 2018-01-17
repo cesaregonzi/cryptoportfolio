@@ -19,6 +19,24 @@ div.ui.inverted.menu {
 
 .editor {
 	padding: 20px;
+	text-align: center !important;
+	width: 400px !important;
+	left: 50% !important;
+	margin-left: -200px !important;
+}
+
+.fullwidth {
+	width: 100%;
+	text-align: right;
+}
+
+.editordiv {
+	margin: 5px;
+	width: 100%;
+}
+
+.leftaligned {
+	text-align: left;
 }
 
 i:hover {

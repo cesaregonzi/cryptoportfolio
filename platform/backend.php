@@ -97,20 +97,21 @@ function generapagina() {
 	<div id='modifica'>
 	<h2 id='cryptoToBeModified'></h2>
 		<form method='post' action='update.php' id='update'>
-
-			<div class='ui right labeled input'>
-			  <input type='text' placeholder='Enter weight..' name='quantity'>
-			  <div class='ui basic label'>
-			    n°
-			  </div>
+		<table class='leftaligned'><tr><td>
+			<div class='ui left labeled input editordiv'>
+			  <label for='amount' class='ui label'>Quantity</label>
+			  <input type='text' placeholder='Change Quantity' name='quantity'>
 			</div>
-			<div class='ui right labeled input'>
+
+			<div class='ui left labeled input editordiv'>
 			  <label for='amount' class='ui label'>$</label>
 			  <input type='text' placeholder='Amount' id='amount' name='price'>
-			  <div class='ui basic label'>.00</div>
 			</div>
-			<div class='ui submit positive button' onclick='update()'>Submit</div>
-			
+			<br>
+			<div class='fullwidth'>
+				<div class='ui submit positive button' onclick='update()'>Submit</div>
+			</div>
+			</td></tr></table>
 		</form>
 	</div>
 	</div>
