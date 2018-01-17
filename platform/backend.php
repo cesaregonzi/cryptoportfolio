@@ -66,7 +66,7 @@ function generapagina() {
 						<td>".$row['buyprice']."</td>
 						<td id=\"".$row['symbol']."\" style='width:200px;min-width:100px'>".$row['lastusd']."</td>
 						<td id=\"val".$row['symbol']."\" style='width:200px;min-width:100px'>".$rounded."</td>
-						<td class='collapsing'><i class=\"edit icon\" onclick='displayEditor(\"".$row['symbol']."\")'></i></td>
+						<td class='collapsing'><i class=\"edit icon\" onclick='displayEditor(\"".$row['symbol']."\")' id='update".$row['symbol']."'></i></td>
 					</tr>
 				";
 
@@ -96,7 +96,7 @@ function generapagina() {
 	<div class='ui modal mini editor'>
 	<div id='modifica'>
 	<h2 id='cryptoToBeModified'></h2>
-		<form method='post' action='update.php'>
+		<form method='post' action='update.php' id='update'>
 
 			<div class='ui right labeled input'>
 			  <input type='text' placeholder='Enter weight..' name='quantity'>
@@ -109,7 +109,7 @@ function generapagina() {
 			  <input type='text' placeholder='Amount' id='amount' name='price'>
 			  <div class='ui basic label'>.00</div>
 			</div>
-			<div class='ui submit positive button'>Submit</div>
+			<div class='ui submit positive button' onclick='update()'>Submit</div>
 			
 		</form>
 	</div>

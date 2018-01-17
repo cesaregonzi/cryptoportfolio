@@ -1,3 +1,7 @@
+//global variables
+var currentCryptoToBeModified = '';
+
+
 setInterval(function() {
     updatePortfolioValue('update');
 }, 2000);
@@ -71,6 +75,19 @@ function displayEditor(data) {
 	        closable: true
 	    });
 	    document.getElementById('cryptoToBeModified').innerHTML = data;
+	    currentCryptoToBeModified = data;
+}
+
+
+function update() {
+var formvalues = $('#update').serialize();
+
+    $.post("./update.php",
+        {
+          values: formvalues,  //qui va messo il valore dell'array che pick from the form
+          symbol: currentCryptoToBeModified
+        });
+    location.reload(true);
 }
 
 
